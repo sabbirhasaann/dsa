@@ -6,6 +6,7 @@
 
 For conencted graph
 Execute [ex_01.cpp](ex_01.cpp)
+practice dynamic -     Execute [ex_03.cpp](ex_03.cpp)
 
 4.  BFS of the Disconnected Graph
 Execute [ex_02.cpp](ex_02.cpp)
