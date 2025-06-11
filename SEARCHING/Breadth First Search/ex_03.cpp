@@ -4,6 +4,40 @@
 using namespace std;
 #define ll long long
 #define endl '\n'
+
+void bfs(vector<vector<int>> &graph)
+{
+    int V = graph.size();
+    vector<bool> visited(V, false);
+    vector<int> res;
+    queue<int> q;
+
+    int source = 0;
+    q.push(source);
+    visited[source] = true;
+
+    while (!q.empty())
+    {
+        int curr = q.front();
+        q.pop();
+        res.push_back(curr);
+
+        for (int x : graph[curr])
+        {
+            if (!visited[x])
+            {
+                q.push(x);
+                visited[x] = true;
+            }
+        }
+    }
+
+    for (int x : res)
+    {
+        cout << x << " ";
+    }
+    cout << endl;
+}
 void soln()
 {
     int vertices, edges;
@@ -17,6 +51,8 @@ void soln()
         graph[x].push_back(y);
         graph[y].push_back(x);
     }
+
+    bfs(graph);
 }
 
 int main()
