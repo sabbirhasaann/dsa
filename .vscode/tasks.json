@@ -10,6 +10,7 @@
                 "${file}",
                 "-o",
                 "a.exe",
+                "-ID:\\VisualStudioCode\\cpp_headers",
                 "&",
                 "a.exe",
                 "<",
@@ -37,8 +38,8 @@
                 "-g",
                 "${file}",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}.exe",
-                "-std=c++17"
+                "${workspaceFolder}\\a.exe",
+                "-std=c++17",
             ],
             "group": {
                 "kind": "build",
