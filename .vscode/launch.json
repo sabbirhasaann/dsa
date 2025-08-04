@@ -6,7 +6,7 @@
             "name": "Customize Debug",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
+            "program": "a.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
