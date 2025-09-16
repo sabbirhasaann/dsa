@@ -33,9 +33,8 @@ void bfs(vector<vector<int>> &graph)
     }
 
     for (int x : res)
-    {
         cout << x << " ";
-    }
+
     cout << endl;
 }
 void soln()
@@ -60,10 +59,6 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(0);
     cout.tie(0);
-
-    int t = 1;
-    // cin >> t;
-    while (t--)
-        soln();
+    soln();
     return 0;
 }

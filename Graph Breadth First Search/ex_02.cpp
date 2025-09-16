@@ -2,8 +2,7 @@
 using namespace std;
 
 // BFS from given source s
-void bfs(vector<vector<int>> &adj, int s,
-         vector<bool> &visited, vector<int> &res)
+void bfs(vector<vector<int>> &adj, int s, vector<bool> &visited, vector<int> &res)
 {
 
     // Create a queue for BFS
@@ -50,24 +49,17 @@ vector<int> bfsDisconnected(vector<vector<int>> &adj)
 
     // perform BFS for each node
     for (int i = 0; i < adj.size(); ++i)
-    {
         if (!visited[i])
-        {
             bfs(adj, i, visited, res);
-        }
-    }
 
     return res;
 }
 
 int main()
 {
-
     vector<vector<int>> adj = {{1, 2}, {0}, {0}, {4}, {3, 5}, {4}};
     vector<int> ans = bfsDisconnected(adj);
     for (auto i : ans)
-    {
         cout << i << " ";
-    }
     return 0;
 }
