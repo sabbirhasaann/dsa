@@ -53,11 +53,9 @@ bool checkDuplicatesWithinK_naive(vector<int> &arr, int k)
 int main()
 {
     vector<int> arr = {10, 5, 3, 4, 3, 5, 6};
-    if (checkDuplicatesWithinK_naive(arr, 3))
-        cout << "Yes";
-    else
-        cout << "No";
+    checkDuplicatesWithinK_naive(arr, 3) ? cout << "Yes" : cout << "No";
+
     cout << endl;
-    (checkDuplicatesWithinK(arr, 3) ? cout << "YES" : cout << "NO");
+    checkDuplicatesWithinK(arr, 3) ? cout << "YES" : cout << "NO";
     return 0;
 }
