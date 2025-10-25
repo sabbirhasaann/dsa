@@ -1,17 +1,75 @@
-int smallestSubstring(string s)
+#include <bits/stdc++.h>
+using namespace std;
+int smallestSubstring(string &S)
 {
-    int zeroIdx = -1,
-        oneIdx = -1,
-        twoIdx = -1
-        answer = -1;
-
-        
+    int n = S.length(), i = 0, j = 0, k = 0, cnt = 0, min_len = INT_MAX;
+    int freq[3] = {0};
+    while (k < n)
+    {
+        freq[S[k] - '0']++;
+        if (freq[S[k] - '0'] == 1)
+            cnt++;
+        if (cnt == 3)
+        {
+            while (freq[S[i] - '0'] > 1)
+            {
+                freq[S[i] - '0']--;
+                i++;
+            }
+            min_len = min(min_len, k - i + 1);
+            freq[S[i] - '0']--;
+            i++;
+            cnt--;
+        }
+        k++;
+    }
+    return (min_len == INT_MAX) ? -1 : min_len;
 }
 
+int smallestSubstring_naive(string &S)
+{
+    int res = INT_MAX;
+
+    // To check 0, 1 and 2
+    bool zero = false, one = false, two = false;
+
+    // To store indexes of 0, 1 and 2
+    int zeroindex, oneindex, twoindex;
+    for (int i = 0; i < S.length(); i++)
+    {
+        if (S[i] == '0')
+        {
+            zero = true;
+            zeroindex = i;
+        }
+        else if (S[i] == '1')
+        {
+            one = true;
+            oneindex = i;
+        }
+        else if (S[i] == '2')
+        {
+            two = true;
+            twoindex = i;
+        }
+
+        // Calculating length
+        if (zero and one and two)
+            res = min(res,
+                      max({zeroindex, oneindex, twoindex}) - min({zeroindex, oneindex, twoindex}));
+    }
+
+    // In case if there is no substring that contains 0,1 and 2
+    if (res == INT_MAX)
+        return -1;
+    return res + 1;
+}
 // Driver Code
 int main()
 {
     string S = "01212";
+
+    cout << smallestSubstring_naive(S) << endl;
 
     // Function call
     cout << smallestSubstring(S);
