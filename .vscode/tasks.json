@@ -10,7 +10,7 @@
                 "${file}",
                 "-o",
                 "a.exe",
-                "-ID:\\VisualStudioCode\\cpp_headers",
+                // "-ID:\\VisualStudioCode\\cpp_headers",
                 "&",
                 "a.exe",
                 "<",
@@ -39,14 +39,13 @@
                 "${file}",
                 "-o",
                 "${workspaceFolder}\\a.exe",
-                "-std=c++17",
             ],
             "group": {
                 "kind": "build",
                 "isDefault": false
             },
             "problemMatcher": "$gcc",
-            "detail": "Generated task by vscode",
+            "detail": "I have created this task",
             "options": {
                 "shell": {
                     "executable": "cmd.exe"
