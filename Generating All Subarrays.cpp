@@ -1,5 +1,4 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
 // Recursive function to print all possible subarrays for given array
@@ -39,7 +38,7 @@ void subArrayIter(vector<int> &arr)
             // and ending points
             for (int k = i; k <= j; k++)
                 cout << arr[k] << " ";
-            cout << endl;
+            cout << " Sum: " << accumulate(arr.begin() + i, arr.begin() + j + 1, 0) << endl;
         }
     }
 }
@@ -47,6 +46,7 @@ void subArrayIter(vector<int> &arr)
 int main()
 {
     vector<int> arr = {1, 2, 3, 4};
+    arr = {-5, 8, -14, 2, 4, 12};
     cout << "All Non-empty Subarrays\n";
     subArrayIter(arr);
 
