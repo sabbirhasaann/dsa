@@ -48,5 +48,6 @@ int main()
     int target = 9;
 
     cout << lowerBound(arr, target);
+
     return 0;
 }
