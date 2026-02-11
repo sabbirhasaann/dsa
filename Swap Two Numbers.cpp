@@ -52,5 +52,11 @@ int main(){
     cout << "After naive swap: " << p.first <<" " << p.second << endl<<endl;
 
 
+    // Using builtin
+    a = 10, b = 20;
+    cout << "Before swap: " << a <<" " << b << endl;
+    swap(a,b);
+    cout << "After naive swap: " << a <<" " << b << endl<<endl;
+
     return 0;
 }
