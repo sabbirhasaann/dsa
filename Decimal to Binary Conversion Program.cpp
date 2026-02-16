@@ -51,10 +51,35 @@ string decToBinary(int n) {
     return bitset<64>(n).to_string().substr(64 - len - 1);
 }
 
+string decToBin32bitUnsigned(unsigned int n){
+    string s;
+    for(int i=0;i<32;++i){
+        if(n & (1<<i))
+            s += '1';
+        else
+            s += '0';       
+    }
+    return s;
+}
+
+int reverseBits(int n){
+    int rev = 0;
+    for (int i = 0; i < 32; i++) {
+        rev <<= 1;
+        if (n & 1) {
+            rev |= 1;
+        }
+        n >>= 1;
+    }
+    return rev;
+}
+
 int main()
 {
     cout << decToBinDiv2(12) << endl;
     cout << decToBinBitwise(12) << endl;
     cout << decToBinaryR(12) << endl;
     cout << decToBinary(12) << endl;
+    cout << decToBin32bitUnsigned(2147483644) << endl;
+
 }
