@@ -74,6 +74,21 @@ int reverseBits(int n){
     return rev;
 }
 
+string decToBinaryUniversal(int n) { // whether the number is negative or positive
+    // Use unsigned int to get the correct 2's complement bit pattern
+    unsigned int num = n; 
+    string bin = "";
+    for (int i = 0; i < 32; ++i) {
+        // Use bitwise AND to check the least significant bit
+        bin += ((num & 1) ? '1' : '0'); 
+        // Right shift the number by 1
+        num >>= 1; 
+    }
+    reverse(bin.begin(), bin.end()); // Reverse to get correct order
+    return bin;
+}
+
+
 int main()
 {
     cout << decToBinDiv2(12) << endl;
@@ -81,5 +96,6 @@ int main()
     cout << decToBinaryR(12) << endl;
     cout << decToBinary(12) << endl;
     cout << decToBin32bitUnsigned(2147483644) << endl;
+    cout << decToBinaryUniversal(-10) << endl;
 
 }
