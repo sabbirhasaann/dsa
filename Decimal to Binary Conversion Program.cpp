@@ -88,6 +88,12 @@ string decToBinaryUniversal(int n) { // whether the number is negative or positi
     return bin;
 }
 
+void builtinDecToBin(){
+    int32_t num = -5;
+    // bitset<32> displays the 32-bit binary representation
+    std::cout << "Binary of -5 is: " << std::bitset<32>(num) << std::endl; 
+    // Output: Binary of -5 is: 11111111111111111111111111111011
+}
 
 int main()
 {
