@@ -36,6 +36,33 @@ vector<int> factor(int n)
     }
     return ret;
 }
+
+
+vector<long long> primeFactors(long long n) {
+    vector<long long> factors;
+
+    // Divide by 2 repeatedly until n is odd
+    while (n % 2 == 0) {
+        factors.push_back(2);
+        n /= 2;
+    }
+
+    // Check for odd factors from 3 up to sqrt(n)
+    // We increment by 2 to skip even numbers
+    for (long long i = 3; i * i <= n; i += 2) {
+        while (n % i == 0) {
+            factors.push_back(i);
+            n /= i;
+        }
+    }
+
+    // If n is a prime number greater than 2 at this point, add it
+    if (n > 2) {
+        factors.push_back(n);
+    }
+
+    return factors;
+}
 void printVec(vector<int> &v)
 {
     for (int x : v)
