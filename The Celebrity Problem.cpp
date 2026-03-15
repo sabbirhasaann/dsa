@@ -39,6 +39,29 @@ int celebrityStack(vector<vector<int>> &mat){
     return c;
 }
 
+int celebrityTwoP(vector<vector<int>> &mat){
+    int n  = mat.size();
+
+    int i=0,j=n-1;
+    while(i<j){
+        if(mat[i][j])
+            ++i;
+        else
+            --j;
+    }
+    // cout << i << " " << j << endl;
+    int c = i;
+    for(int i=0;i<n;++i){
+        if(i==c)
+            continue;
+        if(mat[c][i] || !mat[i][c])
+            return -1;
+    }
+    
+
+    return c;
+}
+
 int main(){
     ios_base::sync_with_stdio(false);
 
@@ -46,6 +69,6 @@ int main(){
                                 { 0, 1, 0 },
                                 { 0, 1, 1 }};
     cout << celebrityStack(mat) << endl;
-
+    cout << celebrityTwoP(mat) << endl;
     return 0;
 }
