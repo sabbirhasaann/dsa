@@ -4,12 +4,7 @@ using namespace std;
 
 int lowerBound_builtin(vector<int> &arr, int target)
 {
-
-    // Using inbuilt method
-    int index = lower_bound(arr.begin(), arr.end(),
-                            target) -
-                arr.begin();
-
+    int index = lower_bound(arr.begin(), arr.end(),target) - arr.begin();
     return index;
 }
 
