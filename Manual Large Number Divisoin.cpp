@@ -60,7 +60,7 @@ int main() {
     string largeNum;
     largeNum = "123456789012345678901234567890";
     cin >> largeNum;
-    long long n = 9;
+    long long n = 7;
 
     // cout << divideLargeNumber(largeNum, n) << endl;
 
