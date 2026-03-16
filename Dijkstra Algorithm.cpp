@@ -4,17 +4,13 @@ using namespace std;
 vector<int> dijkstra(vector<vector<pair<int,int>>>& adj, int src) {
 
     int V = adj.size();
-
-    // Min-heap (priority queue) storing pairs of (distance, node)
     priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
-
     vector<int> dist(V, INT_MAX);
 
-    // Distance from source to itself is 0
+    
     dist[src] = 0;
     pq.emplace(0, src);
 
-    // Process the queue until all reachable vertices are finalized
     while (!pq.empty()) {
         auto top = pq.top();
         pq.pop();
@@ -22,16 +18,13 @@ vector<int> dijkstra(vector<vector<pair<int,int>>>& adj, int src) {
         int d = top.first;  
         int u = top.second; 
 
-        // If this distance not the latest shortest one, skip it
         if (d > dist[u])
             continue;
 
-        // Explore all neighbors of the current vertex
         for (auto &p : adj[u]) {
             int v = p.first; 
             int w = p.second; 
 
-            // If we found a shorter path to v through u, update it
             if (dist[u] + w < dist[v]) {
                 dist[v] = dist[u] + w;   
                 pq.emplace(dist[v], v);
@@ -39,8 +32,45 @@ vector<int> dijkstra(vector<vector<pair<int,int>>>& adj, int src) {
         }
     }
 
-    // Return the final shortest distances from the source
     return dist;
+}
+
+void printArray(vector<int> &v)
+{
+    for (int x : v)
+        cout << x << " ";
+    cout << endl;
+}
+
+vector<int> dijkstra1(vector<vector<pair<int,int>>> &adj, int s){
+    int n = adj.size();
+    vector<int> dist(n, INT_MAX);
+    priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> pq;
+
+    pq.push({0,s});
+    dist[s] = 0;
+
+    while(!pq.empty()){
+        pair<int,int> top = pq.top();
+        int d = top.first;
+        int u = top.second;
+        pq.pop();
+        
+        if(d>dist[u])
+            continue;
+
+        for(pair<int,int> p: adj[u]){
+            int v = p.first;
+            int w = p.second;
+
+            if(dist[u] + w < dist[v]){
+                dist[v] = dist[u] + w;
+                pq.push({dist[v], v});
+            }
+        }
+    }
+    return dist;
+
 }
 
 int main()
@@ -59,4 +89,35 @@ int main()
     for (int d : result)
         cout << d << " ";
     cout << " ";
+
+
+
+    // int n,e;
+    // cin >> n >> e;
+    // vector<vector<pair<int,int>>> adj(n);
+    // int i=0;
+    // while(i<n){
+    //     int u,v,w;
+    //     cin >> u >> v >> w;
+    //     adj[u].push_back({v,w});
+    //     adj[v].push_back({u,w});
+    //     ++i;
+    // }
+
+    // vector<int> path = dijkstra(adj, 0);
+    // printArray(path);
 }
+
+/*input
+5 5
+0 1 4
+0 2 8
+1 2 3
+1 4 6
+2 3 2
+3 4 10
+*/
+
+/*output
+0 4 7 9 10
+*/
