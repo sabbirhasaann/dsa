@@ -1,5 +1,5 @@
 // 2026/02/11 08:06:12
-// https://www.geeksforgeeks.org/dsa/swap-two-numbers/
+// https://www.geeksforgeeks.org/dsa/swap-two-numbers-without-using-temporary-variable/
 
 #include <bits/stdc++.h>
 using namespace std;
