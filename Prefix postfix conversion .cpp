@@ -6,6 +6,18 @@ using namespace std;
 #define ll long long
 #define endl '\n'
 
+bool isOperator(char x)
+{
+    switch (x) {
+    case '+':
+    case '-':
+    case '/':
+    case '*':
+        return true;
+    }
+    return false;
+}
+
 string prefToPost(string s){
     reverse(s.begin(), s.end());
     stack<string> st;
