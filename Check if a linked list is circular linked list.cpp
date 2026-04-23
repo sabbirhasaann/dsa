@@ -17,6 +17,9 @@ public:
 };
 
 bool isCircular(Node* head){
+    if (!head)
+        return true;
+
     Node* curr = head;
     while(curr && curr->next != head){
         curr = curr->next;
@@ -24,6 +27,22 @@ bool isCircular(Node* head){
     if(!curr)
         return false;
     return true;
+}
+
+bool isCircular2(Node* head){
+    if (!head)
+        return true;
+
+    Node* slow = head;
+    Node* fast = head->next;
+
+    while(slow && fast->next){
+        if(slow == fast)
+            return true;
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+    return false;
 }
 
 Node* insertAtEnd(Node *head, int x){
@@ -90,17 +109,23 @@ int main(){
     traverseLinkedList(headS);
     
     isCircular(headS)
-    ? cout <<"Circular Singly Linked List."
-    : cout << "Singly Linked List.";
-
+    ? cout <<"Circular Singly Linked List.\n"
+    : cout << "Singly Linked List.\n";
+    isCircular2(headS)
+    ? cout <<"Circular Singly Linked List. 2nd Method\n"
+    : cout << "Singly Linked List. 2nd Method\n";
     Node *headCS = nullptr;
     for(int x: a)
         headCS = insertAtEndSingly(headCS, x);
     traverseSinglyCircular(headCS);
 
     isCircular(headCS)
-    ? cout <<"Circular Singly Linked List."
-    : cout << "Singly Linked List.";
-
+    ? cout <<"Circular Singly Linked List.\n"
+    : cout << "Singly Linked List.\n";
+    
+    isCircular2(headCS)
+    ? cout <<"Circular Singly Linked List. 2nd Method\n"
+    : cout << "Singly Linked List. 2nd Method\n";
+    
     return 0;
 }
